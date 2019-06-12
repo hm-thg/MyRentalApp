@@ -1,0 +1,43 @@
+<div class="container">
+  <br>
+  <form (ngSubmit)="addProperty(addRentalForm)" #addRentalForm="ngForm">
+  <div class = "row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+      <p *ngIf="isPropertyAdded" style="color:green">Your Property is added successfully</p>
+
+      <h2>Add Your Property for Rent</h2><br>
+      <div class="form-group">
+      <label for="title">Title Of Property</label>
+      <input name="title" ngModel type="text" class="form-control" placeholder="Enter Title" required>
+      <small id="emailHelp" class="form-text text-muted">You Must Enter the Title less then 100 letters</small>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input name="price" ngModel type="text" class="form-control" placeholder="Enter Price" required>
+      <small id="emailHelp" class="form-text text-muted">Enter the price in rupees (5000.00)</small>
+    </div>
+    <div class="form-group">
+      <label for="price">Locality</label>
+      <input name="locality" ngModel type="text" class="form-control" placeholder="Enter Locality" required>
+      <small id="emailHelp" class="form-text text-muted">You Must Enter the Title less then 100 letters</small>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input name="description" ngModel type="text" class="form-control" placeholder="Description" required>
+    </div>
+    <div class="form-group">
+      <label for="ownername">Owner Name</label>
+      <input name="ownername" ngModel type="text" class="form-control" placeholder="Owner Name" required>
+    </div>
+    <div class="form-group">
+      <label for="ownercontact">Owner Contact</label>
+      <input name="ownercontact" ngModel type="text" class="form-control" placeholder="Owner Contact" required>
+    </div>
+    <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary btn-block">Submit</button><br><br>
+    </div>
+    <div class = "col-lg-3"></div>
+  </div>
+    
+  </form>
+</div>
