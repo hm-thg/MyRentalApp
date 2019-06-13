@@ -6,6 +6,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  constructor(private db:AngularFireAuth) { }
+  constructor(public FirebaseAuth:AngularFireAuth) { }
 
+  logIn(email,password){
+    this.FirebaseAuth.auth.signInWithEmailAndPassword(email,password).then(data=>{
+      console.log(data)
+    }).catch(err=>{
+      console.log(err)
+    })
+  }
 }

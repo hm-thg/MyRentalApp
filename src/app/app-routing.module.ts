@@ -7,11 +7,14 @@ import { RentalsComponent } from './home/rentals/rentals.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path:'allproperties' , component:RentalsComponent},
   {path:'addproperty' , component:AddrentalComponent},
-  {path:'home' , component:IndexComponent},
+  {path:'home' , component:HomeComponent},
+  {path:'index' , component:IndexComponent},
+  {path:'' , component:IndexComponent},
   {path:'auth' , component:AuthComponent},
   {path:'test/:id' , component:SignupComponent},
   {path:'auth' , component:AuthComponent,children:[

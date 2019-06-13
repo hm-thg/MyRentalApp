@@ -18,5 +18,6 @@ export class SigninComponent implements OnInit {
   signIn(signInForm:NgForm){
     console.log(signInForm.value)
     signInForm.reset()
+    this.authService.logIn(signInForm.value.email,signInForm.value.password)
   }
 }
