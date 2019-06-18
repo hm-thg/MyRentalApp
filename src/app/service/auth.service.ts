@@ -26,6 +26,7 @@ export class AuthService {
   addUser(email,password){
     this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data => {
       console.log(data)
+      this.router.navigateByUrl('/home')
     }).catch(err=>{
       console.log(err)
     })
