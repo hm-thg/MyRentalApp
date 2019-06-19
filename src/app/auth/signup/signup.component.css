@@ -1,0 +1,10 @@
+.container{
+  width: 100%;
+  position: relative;
+  margin-top:4%;
+}
+h2{
+  background:rgba(4, 4, 41, 0.562);
+  color:white;
+  width: fit-content;
+}
