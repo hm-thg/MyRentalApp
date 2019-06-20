@@ -1,3 +1,4 @@
+import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 import { IndexComponent } from './home/index/index.component';
 import { AddrentalComponent } from './home/addrental/addrental.component';
 import { NgModule } from '@angular/core';
@@ -12,18 +13,22 @@ import { AuthGuardService } from './service/auth-guard.service';
 
 
 const routes: Routes = [
-  {path:'allproperties' , component:RentalsComponent},
-  {path:'addproperty' , component:AddrentalComponent},
-  {path:'home' , component:HomeComponent, canActivate:[AuthGuardService]},
-  {path:'index' , component:IndexComponent},
-  {path:'' , component:IndexComponent},
-  {path:'auth' , component:AuthComponent},
-  {path:'test/:id' , component:SignupComponent},
-  {path:'auth' , component:AuthComponent,children:[
-    {path:'signin' , component:SigninComponent},
-    {path:'signup' , component:SignupComponent}
+
+  {path: 'home' , component: HomeComponent, canActivate: [AuthGuardService] },
+  {path: 'home' , component: HomeComponent, canActivate: [AuthGuardService], children: [
+    {path: 'allproperties' , component: RentalsComponent},
+    {path: 'addproperty' , component: AddrentalComponent},
+    {path: 'enquiries' , component: EnquiriesComponent},
   ]},
-  {path:'**' , component:ErrorComponent}
+  {path: 'index' , component: IndexComponent},
+  {path: '' , component: IndexComponent},
+  // {path:'auth' , component:AuthComponent},
+  {path: 'test/:id' , component: SignupComponent},
+  {path: 'auth' , component: AuthComponent, children: [
+    {path: 'signin' , component: SigninComponent},
+    {path: 'signup' , component: SignupComponent}
+  ]},
+  {path: '**' , component: ErrorComponent}
 ];
 
 @NgModule({

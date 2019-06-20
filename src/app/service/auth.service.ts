@@ -24,19 +24,23 @@ export class AuthService {
     })
   }
   addUser(email,password){
-    this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data => {
+    this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
       console.log(data)
       this.router.navigateByUrl('/home')
-    }).catch(err=>{
+     }).catch(err=>{
       console.log(err)
-    })
+     })
   }
   isAuthenticated(){
     if(this.userDetails){
       return true;
-    else
-      return false;
-
     }
+    else{
+      return false;
+    }
+  }
+  getEmail(){
+    console.log(this.userDetails)
+    return this.userDetails.user.email
   }
 }

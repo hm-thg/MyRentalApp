@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/addproperty">Add Property</a>
         </li>
+        <li class="nav-item">
+          <a routerLink="/home/enquiries" class="nav-link" href="#">Enquiries</a>
+      </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -36,12 +39,25 @@
     <p>{{property.description}}</p>
   </div>
   <div class="col">
-    <h2>Owner's Details</h2>
-    <br>
-    <p style="color: blue">Owner Name: {{property.ownername}}</p>
-    <p style="color: blue">Contact : {{property.ownercontact}}</p>
-    <br>
-    <h2 style="color: red">Price</h2>
-    <h4 style="color:green">Rs {{property.price}} /-</h4>
-  </div>
-</div>
+    <!--       <h2>Owner's Details</h2>
+      <br>
+      <p style="color: blue">Owner Name: {{property.ownername}}</p>
+      <p style="color: blue">Conntact : {{property.ownercontact}}</p> -->
+      <br>
+      <h2 style="color: red">Price</h2>
+      <h4 style="color:green">Rs {{property.price}}</h4>
+      <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
+
+      <ng-container *ngIf="showForm">
+          <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm">
+            <div class="form-group">
+              <label>Message</label>
+              <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
+            </div>
+            <button type="submit">Send Enquiry</button>
+          </form>
+      </ng-container>
+
+
+    </div>
+    </div>

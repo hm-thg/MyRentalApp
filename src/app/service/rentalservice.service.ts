@@ -1,5 +1,7 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root' //provided service at the root available for any classes
@@ -14,6 +16,12 @@ export class RentalserviceService {
   }
 
   getAllRentals(){
-    return this.db.collection('rentals').valueChanges()
+    return this.db.collection('rentals').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 }
