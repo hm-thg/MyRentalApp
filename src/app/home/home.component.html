@@ -13,13 +13,13 @@
         <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a routerLink="/allproperties" class="nav-link">All Properties</a>
+        <a routerLink="/home/allproperties" class="nav-link">All Properties</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/addproperty">Add Property</a>
+        <a class="nav-link" routerLink="/home/addproperty">Add Property</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/enquiries">Enquiries</a>
+        <a class="nav-link" routerLink="/home/enquiries">Enquiries</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -29,5 +29,5 @@
   </div>
 </nav>
 <br>
-<h2>Welcome user!</h2>
+<h2>&nbsp;&nbsp;&nbsp;Welcome {{user}}!</h2>
 <router-outlet></router-outlet>

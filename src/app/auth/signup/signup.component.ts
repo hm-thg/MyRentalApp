@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  constructor(public authService:AuthService,public router:Router) { }
+  constructor(public authService: AuthService, public router:Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +17,9 @@ export class SignupComponent implements OnInit {
     this.authService.addUser(signUpForm.value.email,signUpForm.value.password)
     signUpForm.reset()
 
+  }
+  uname(signUpForm: NgForm){
+    this.authService.display = signUpForm.value.name;
   }
 
 }

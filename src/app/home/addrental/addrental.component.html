@@ -4,7 +4,7 @@
   <div class = "row">
     <div class = "col-lg-3"></div>
     <div class = "col-lg-6">
-      <p *ngIf="isPropertyAdded" style="color:black"><b>Your Property is added successfully</b></p>
+      <!-- <p *ngIf="isPropertyAdded" ><b>Your Property is added successfully</b></p> -->
 
       <h2><b>Add Your Property for Rent</b></h2><br>
       <div class="form-group">
@@ -26,15 +26,15 @@
       <label for="description"><b>Description</b></label>
       <input name="description" ngModel type="text" class="form-control" placeholder="Description" required>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="ownername"><b>Owner Name</b></label>
       <input name="ownername" ngModel type="text" class="form-control" placeholder="Owner Name" required>
     </div>
     <div class="form-group">
       <label for="ownercontact"><b>Owner Contact</b></label>
       <input name="ownercontact" ngModel type="text" class="form-control" placeholder="Owner Contact" required>
-    </div>
-    <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary btn-block"><b>Submit</b></button><br><br>
+    </div> -->
+    <button type="submit" [disabled]="!addRentalForm.valid" class="btn btn-primary btn-block" (click)="showSuccess()"><b>Submit</b></button><br><br>
     </div>
     <div class = "col-lg-3"></div>
   </div>

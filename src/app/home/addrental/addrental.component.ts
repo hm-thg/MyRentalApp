@@ -4,14 +4,16 @@ import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-addrental',
   templateUrl: './addrental.component.html',
   styleUrls: ['./addrental.component.css']
 })
 export class AddrentalComponent implements OnInit {
-  isPropertyAdded:boolean=false
-  constructor(public rentalService:RentalserviceService,public router:Router) { }
+  isPropertyAdded: boolean = false
+  constructor(public rentalService:RentalserviceService,public router:Router) {
+  }
 
   ngOnInit() {
   }
@@ -26,4 +28,5 @@ export class AddrentalComponent implements OnInit {
     })
 
   }
+
 }

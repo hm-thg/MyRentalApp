@@ -1,6 +1,8 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+
 
 
 @Injectable({
@@ -8,10 +10,12 @@ import { map } from 'rxjs/operators';
 })
 export class RentalserviceService {
 
-  constructor(private db:AngularFirestore) { }
+  constructor(private db:AngularFirestore,public authService: AuthService) { }
 
   addRental(rental){
     let createdOn = new Date()
+    // let ownernum = this.authService.userDetails.pno
+    // let ownername = this.authService.userDetails.name
     return this.db.collection('rentals').add({createdOn,...rental})
   }
 

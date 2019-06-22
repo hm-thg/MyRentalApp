@@ -15,18 +15,18 @@ export class SinglepropertyComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendEnquiry(enquiryForm:NgForm){
-    console.log(enquiryForm.value)
-    let title = this.property.title
-    let timestamp=new Date()
-    let id = this.property.id
-    let ownerEmail=this.property.ownerEmail
-    let email = this.authService.getEmail()
-    this.enquiryService.addEnquiry({email,ownerEmail,timestamp,id,title,...enquiryForm.value}).then(data=>{
-      enquiryForm.reset()
-      this.showForm=false
-    }).catch(err=>{
-      console.log(err)
+  sendEnquiry(enquiryForm: NgForm){
+    console.log(enquiryForm.value);
+    let title = this.property.title;
+    let timestamp = new Date();
+    let id = this.property.id;
+    let ownerEmail = this.property.ownerEmail;
+    let email = this.authService.getEmail();
+    this.enquiryService.addEnquiry({email, ownerEmail, timestamp, id, title, ...enquiryForm.value}).then(data => {
+      enquiryForm.reset();
+      this.showForm = false;
+    }).catch(err => {
+      console.log(err);
     })
 
   }

@@ -1,63 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-  <span style = "font-size:1.5em;color:white; margin-right:6px;"><i class="fas fa-home"></i></span>
-    <a class="navbar-brand" routerLink = "/index">Rental App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item  ">
-          <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/allproperties" class="nav-link">All Properties</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/addproperty">Add Property</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/home/enquiries" class="nav-link" href="#">Enquiries</a>
-      </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  <br>
+<br>
 <div class="row">
   <div class="col">
-    <h2>Property Details</h2>
+    <h2 style="color:black"><b>{{property.title}}</b></h2>
     <br>
-    <h4 style="color:orange">{{property.title}}</h4>
-    <br>
-    <h6 style="color: blue">Property Details:</h6>
-    <p>{{property.description}}</p>
+    <h6 style="color: rgb(14, 14, 65)">Property Details:</h6>
+    <p style = "font-family:sans-serif">{{property.description}}</p>
   </div>
   <div class="col">
-    <!--       <h2>Owner's Details</h2>
-      <br>
-      <p style="color: blue">Owner Name: {{property.ownername}}</p>
-      <p style="color: blue">Conntact : {{property.ownercontact}}</p> -->
-      <br>
-      <h2 style="color: red">Price</h2>
-      <h4 style="color:green">Rs {{property.price}}</h4>
-      <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
+    <h2 style = "color: black"><b>Owner's Details</b></h2>
+    <br>
+    <p style="color: rgb(14, 14, 65)"><b>Owner Name:</b> {{property.ownername}}</p>
+    <p style="color: rgb(14, 14, 65)"><b>Contact</b> : {{property.ownercontact}}</p>
+    <br>
+    <h3 style="color: rgba(10, 4, 14, 0.877)">Price</h3>
+    <h4 style="color:rgba(6, 5, 48, 0.801)">Rs {{property.price}} /-</h4><br><br>
+    <button style = "width: fit-content" (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
 
-      <ng-container *ngIf="showForm">
-          <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm">
-            <div class="form-group">
-              <label>Message</label>
-              <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
-            </div>
-            <button type="submit">Send Enquiry</button>
-          </form>
-      </ng-container>
+    <ng-container *ngIf="showForm">
+      <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm">
+        <div class="form-group">
+          <label></label>
+          <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style = "width: fit-content;">Send Enquiry</button><br><br>
+      </form>
+    </ng-container>
 
 
-    </div>
-    </div>
+  </div>
+</div>
