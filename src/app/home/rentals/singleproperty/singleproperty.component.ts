@@ -9,14 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class SinglepropertyComponent implements OnInit {
   @Input('property') property
-  showForm:boolean=false
-  constructor(public authService:AuthService,public enquiryService:EnquiryService) { }
+  showMessage = false;
+  showForm = false;
+  constructor(public authService:AuthService,public enquiryService: EnquiryService) { }
 
   ngOnInit() {
   }
 
   sendEnquiry(enquiryForm: NgForm){
     console.log(enquiryForm.value);
+    this.showMessage = true;
     let title = this.property.title;
     let timestamp = new Date();
     let id = this.property.id;

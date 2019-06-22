@@ -2,13 +2,14 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userDetails = null
-  display: any
+  userDetails
+  display:any
+  // lError
+
   constructor(public FirebaseAuth:AngularFireAuth,public router:Router) {
     this.FirebaseAuth.authState.subscribe(user => {
       if(user){
@@ -20,18 +21,19 @@ export class AuthService {
   logIn(email,password){
     this.FirebaseAuth.auth.signInWithEmailAndPassword(email,password).then(data=>{
       console.log(data)
-      // this.display = this.userDetails.user.displayname
       this.router.navigateByUrl('/home')
     }).catch(err=>{
+      // this.lError = err
+      alert(err )
       console.log(err)
     })
   }
   addUser(email,password){
     this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
       console.log(data)
-      // this.display = this.userDetails.user.name
       this.router.navigateByUrl('/home')
      }).catch(err=>{
+       alert(err)
       console.log(err)
      })
   }
@@ -39,7 +41,7 @@ export class AuthService {
     if(this.userDetails){
       return true;
     }
-    else{
+    else {
       return false;
     }
   }

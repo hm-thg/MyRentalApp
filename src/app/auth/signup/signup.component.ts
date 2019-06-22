@@ -12,14 +12,15 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  uname(signUpForm: NgForm){
+    this.authService.display = signUpForm.value.name;
+    this.signUp(signUpForm)
+  }
   signUp(signUpForm:NgForm){
     console.log(signUpForm.value)
     this.authService.addUser(signUpForm.value.email,signUpForm.value.password)
     signUpForm.reset()
-
-  }
-  uname(signUpForm: NgForm){
-    this.authService.display = signUpForm.value.name;
   }
 
 }

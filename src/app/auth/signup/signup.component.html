@@ -4,9 +4,8 @@
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
         <h2>Create a new account!</h2>
-        <!-- <p *ngIf="isuser" style="color:blue">Congrats! You have been successfully registered!</p> -->
         <br>
-        <form (ngSubmit)="signUp(signUpForm)" #signUpForm="ngForm">
+        <form (ngSubmit)="uname(signUpForm)" #signUpForm="ngForm">
           <div class="form-group">
             <label for="email"><b>Enter email:</b></label>
             <input name="email" ngModel type="email" class="form-control" placeholder="Enter your email:" required>

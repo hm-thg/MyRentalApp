@@ -22,7 +22,8 @@
           <label></label>
           <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
         </div>
-        <button type="submit" class="btn btn-primary btn-block" style = "width: fit-content;">Send Enquiry</button><br><br>
+        <button type="submit" class="btn btn-primary btn-block" style = "width: fit-content;">Send Enquiry</button>
+        <h4 *ngIf = "showMessage" style = "font-family: inherit;">Your enquiry has been sent!</h4><br><br>
       </form>
     </ng-container>
 

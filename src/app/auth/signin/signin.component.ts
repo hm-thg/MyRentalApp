@@ -11,14 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  constructor(public authService:AuthService,public router:Router) { }
-
+  // loginError = "typing";
+  // showError = false;
+  constructor(public authService: AuthService, public router: Router) { }
   ngOnInit() {
   }
   signIn(signInForm:NgForm){
-    console.log(signInForm.value)
-    this.authService.logIn(signInForm.value.email,signInForm.value.password)
-    signInForm.reset()
-
+    console.log(signInForm.value);
+    this.authService.logIn(signInForm.value.email, signInForm.value.password);
+    // this.loginError = this.authService.lError;
+    // this.showError = true
+    signInForm.reset();
   }
 }
