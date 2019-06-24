@@ -24,6 +24,10 @@
           <label for="description"><b>Description</b></label>
           <input name="description" ngModel type="text" class="form-control" placeholder="Description" required>
         </div><br>
+        <div class="form-group">
+          <label for="file"><b>Add image of your property</b></label>
+          <input (change)="selectFile($event)" name="file" ngModel type="file" class="form-control" placeholder="Upload the file" required>
+        </div><br>
         <h3 *ngIf="isPropertyAdded" style = "font-family: fantasy;">Your Property is added successfully</h3>
 
         <button type="submit" [disabled]="!addRentalForm.valid"

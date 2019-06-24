@@ -6,32 +6,34 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  userDetails
+  userDetails=null
   display:any
   // lError
 
   constructor(public FirebaseAuth:AngularFireAuth,public router:Router) {
-    this.FirebaseAuth.authState.subscribe(user => {
+    this.FirebaseAuth.authState.subscribe(user=>{
       if(user){
-        this.userDetails = user
+        this.userDetails=user
       }
     })
    }
 
   logIn(email,password){
     this.FirebaseAuth.auth.signInWithEmailAndPassword(email,password).then(data=>{
-      console.log(data)
+      this.userDetails=data
+      console.log(this.userDetails)
       this.router.navigateByUrl('/home')
     }).catch(err=>{
       // this.lError = err
-      alert(err )
+      alert(err)
       console.log(err)
     })
   }
   addUser(email,password){
     this.FirebaseAuth.auth.createUserWithEmailAndPassword(email,password).then(data=>{
-      console.log(data)
+      this.userDetails=data
       this.router.navigateByUrl('/home')
+      console.log(data)
      }).catch(err=>{
        alert(err)
       console.log(err)
@@ -41,12 +43,12 @@ export class AuthService {
     if(this.userDetails){
       return true;
     }
-    else {
+    else{
       return false;
     }
   }
   getEmail(){
     console.log(this.userDetails)
-    return this.userDetails.user.email
+    return this.userDetails.email
   }
 }

@@ -1,8 +1,6 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { AuthService } from './auth.service';
-
 
 
 @Injectable({
@@ -10,7 +8,7 @@ import { AuthService } from './auth.service';
 })
 export class RentalserviceService {
 
-  constructor(private db:AngularFirestore,public authService: AuthService) { }
+  constructor(private db:AngularFirestore) { }
 
   addRental(rental){
     let createdOn = new Date()
