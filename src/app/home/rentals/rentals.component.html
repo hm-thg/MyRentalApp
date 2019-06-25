@@ -1,30 +1,48 @@
+<br>
 <div class="container">
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-dark" id="dropdownBasic1" ngbDropdownToggl>Sort by Price</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Low to High</button>
+          <button ngbDropdownItem>High to Low</button>
+          <!-- <button ngbDropdownItem>Date</button> -->
+        </div>
+      </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div><br><br><br><br>
+  <div class="container">
 
-  <div *ngIf="mode=='list'">
-    <div class="row">
-      <div *ngFor="let property of properties">
-        <div style="margin-bottom:20px; margin-right:0px;">
-          <div class="col-lg-4">
-            <div class="card" style="width: 14rem;">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{property.title}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.</p>
-                <p style="color:rgb(10, 12, 181)"> Rs {{property.price}}</p>
-                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
+    <div *ngIf="mode=='list'">
+      <div class="row">
+        <div *ngFor="let property of properties">
+          <div style="margin-bottom:20px; margin-right:0px;">
+            <div class="col-lg-4">
+              <div class="card" style="width: 14rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{property.title}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                  <p style="color:rgb(10, 12, 181)"> Rs {{property.price}}</p>
+                  <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-</div><br>
+  </div><br>
 
-<div class="container">
+  <div class="container">
     <button class="btn-primary" *ngIf="mode=='single'" (click)="mode='list'">Back</button><br>
-  <app-singleproperty [property]="selectedProperty" *ngIf="mode=='single'"></app-singleproperty>
-</div>
+    <app-singleproperty [property]="selectedProperty" *ngIf="mode=='single' && selectedProperty"></app-singleproperty>
+  </div>

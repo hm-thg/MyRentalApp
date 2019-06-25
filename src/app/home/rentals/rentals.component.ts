@@ -10,7 +10,7 @@ export class RentalsComponent implements OnInit {
 // tslint:disable-next-line: whitespace
   properties=[]
   selectedProperty;
-  mode: any = 'list'; // list or single
+  mode:any='list' // list or single
   constructor(public rentalService:RentalserviceService) { }
 
   ngOnInit() {

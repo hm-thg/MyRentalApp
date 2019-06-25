@@ -1,4 +1,4 @@
-<br>
+<!-- <br> -->
 <div class="row">
   <div class="col">
     <h2 style="color:black"><b>{{property.title}}</b></h2>
@@ -12,16 +12,15 @@
     <!-- <p style="color: rgb(14, 14, 65)"><b>Owner Name:</b> {{property.ownername}}</p>
     <p style="color: rgb(14, 14, 65)"><b>Contact</b> : {{property.ownercontact}}</p> -->
     <!-- <br> -->
-    <img width= "500px" height= "200px;" src={{image|async}}>
+    <img width= "500px" height= "200px;" src="{{image|async}}">
     <h3 style="color: rgba(10, 4, 14, 0.877)">Price</h3>
     <h4 style="color:rgba(6, 5, 48, 0.801)">Rs {{property.price}} /-</h4><br><br>
     <button style="width: fit-content" (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this
-      property</button>
+      property</button><br>
 
     <ng-container *ngIf="showForm">
       <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm">
         <div class="form-group">
-          <label></label>
           <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
         </div>
         <button type="submit" class="btn btn-primary btn-block" style="width: fit-content;">Send Enquiry</button>

@@ -23,6 +23,8 @@ export class AddrentalComponent implements OnInit {
     console.log(addrentalform.value)
     let ownerEmail = this.authService.getEmail()
     let image = this.path
+    console.log(image)
+    console.log(this.path)
     this.rentalService.addRental({image,ownerEmail,...addrentalform.value}).then(data=>{
       console.log(data.id)
       addrentalform.reset()
@@ -36,8 +38,10 @@ export class AddrentalComponent implements OnInit {
   let file = event.target.files[0]
   let date = new Date()
     let unique =  '/rentals/' + date
+    console.log(unique)
     let task = this.storage.upload(unique,file).then(data=>{
       this.path = unique
+      console.log(this.path)
       console.log(data)
     }).catch(err=>{
         console.log(err)

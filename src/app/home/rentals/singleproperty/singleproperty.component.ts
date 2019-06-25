@@ -18,6 +18,7 @@ export class SinglepropertyComponent implements OnInit {
     public storage: AngularFireStorage) { }
 
   ngOnInit() {
+    console.log(this.property)
     this.image = this.storage.ref(this.property.image).getDownloadURL()
   }
 

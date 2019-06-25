@@ -26,4 +26,7 @@ export class RentalserviceService {
       }))
     );
   }
+  // getOrderedRentals(by:string){
+  //   this.db.collection('rentals',ref=>ref.orderBy('price',by))
+  // }
 }
