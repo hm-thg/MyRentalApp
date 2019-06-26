@@ -1,17 +1,18 @@
+import { AuthService } from 'src/app/service/auth.service';
 import { RentalserviceService } from './../../service/rentalservice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-rentals',
-  templateUrl: './rentals.component.html',
-  styleUrls: ['./rentals.component.css']
+  selector: 'app-myproperties',
+  templateUrl: './myproperties.component.html',
+  styleUrls: ['./myproperties.component.css']
 })
-export class RentalsComponent implements OnInit {
-// tslint:disable-next-line: whitespace
+export class MypropertiesComponent implements OnInit {
   properties=[]
+  myProperties=[]
   selectedProperty;
   mode:any='list' // list or single
-  constructor(public rentalService:RentalserviceService) { }
+  constructor(public rentalService:RentalserviceService,public authService:AuthService) { }
 
   ngOnInit() {
     this.getAllProperties()
@@ -20,9 +21,18 @@ export class RentalsComponent implements OnInit {
   getAllProperties(){
     this.rentalService.getAllRentals().subscribe(res=>{
       this.properties = res;
+      this.getMyProperties(this.properties);
       console.log(this.properties);
     });
   }
+  getMyProperties(myProperties){
+    let j = 0
+    for(var i = 0;i < myProperties.length;i++){
+      if(this.authService.getEmail() == myProperties[i].ownerEmail)
+        this.myProperties[j++] = myProperties[i]
+    }
+  }
+
   ViewDetails(property){
     this.mode='single';
     this.selectedProperty = property;
@@ -38,4 +48,5 @@ export class RentalsComponent implements OnInit {
       this.properties=data
     })
   }
+
 }

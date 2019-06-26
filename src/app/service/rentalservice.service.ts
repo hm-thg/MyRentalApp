@@ -2,7 +2,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root' //provided service at the root available for any classes
 })
@@ -14,6 +13,7 @@ export class RentalserviceService {
     let createdOn = new Date()
     // let ownernum = this.authService.userDetails.pno
     // let ownername = this.authService.userDetails.name
+    // this.updateService.originalForm(rental)
     return this.db.collection('rentals').add({createdOn,...rental})
   }
 
@@ -26,6 +26,7 @@ export class RentalserviceService {
       }))
     );
   }
+
   getOrderedRentals(by){
     return  this.db.collection('rentals',ref=>ref.orderBy('price',by)).snapshotChanges().pipe(
       map(actions => actions.map(a => {

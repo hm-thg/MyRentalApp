@@ -26,7 +26,7 @@
 <div class="container">
   <div *ngIf="mode=='list'">
     <div class="row">
-      <div *ngFor="let property of properties">
+      <div *ngFor="let property of myProperties">
         <div style="margin-bottom:20px; margin-right:0px;">
           <div class="col-lg-4">
             <div class="card" style="width: 14rem;">
@@ -37,7 +37,8 @@
                   card's
                   content.</p>
                 <p style="color:rgb(10, 12, 181)"> Rs {{property.price}}</p>
-                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">View Details</a>
+                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">Update</a>&nbsp;&nbsp;
+                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">Delete</a>
               </div>
             </div>
           </div>

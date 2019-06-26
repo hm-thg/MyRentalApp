@@ -22,6 +22,7 @@ import { IndexComponent } from './home/index/index.component';
 import { SinglepropertyComponent } from './home/rentals/singleproperty/singleproperty.component';
 import { ErrorComponent } from './error/error.component';
 import { EnquiriesComponent } from './home/enquiries/enquiries.component';
+import { MypropertiesComponent } from './home/myproperties/myproperties.component';
 
 
 
@@ -37,7 +38,8 @@ import { EnquiriesComponent } from './home/enquiries/enquiries.component';
     IndexComponent,
     SinglepropertyComponent,
     ErrorComponent,
-    EnquiriesComponent
+    EnquiriesComponent,
+    MypropertiesComponent
 
   ],
   imports: [

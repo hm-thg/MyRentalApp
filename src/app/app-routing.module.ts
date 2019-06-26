@@ -1,3 +1,4 @@
+import { MypropertiesComponent } from './home/myproperties/myproperties.component';
 import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 import { IndexComponent } from './home/index/index.component';
 import { AddrentalComponent } from './home/addrental/addrental.component';
@@ -11,7 +12,6 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuardService } from './service/auth-guard.service';
 
-
 const routes: Routes = [
 
   {path: 'home' , component: HomeComponent, canActivate: [AuthGuardService] },
@@ -19,6 +19,7 @@ const routes: Routes = [
     {path: 'allproperties' , component: RentalsComponent},
     {path: 'addproperty' , component: AddrentalComponent},
     {path: 'enquiries' , component: EnquiriesComponent},
+    {path: 'myproperties' , component: MypropertiesComponent},
   ]},
   {path: 'index' , component: IndexComponent},
   {path: '' , component: IndexComponent},
