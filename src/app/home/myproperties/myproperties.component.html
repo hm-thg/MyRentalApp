@@ -1,9 +1,10 @@
 <br>
 <div class="container">
-  <button class="btn-primary" *ngIf="mode=='single'" (click)="mode='list'">Back To All Properties</button><br><br>
-  <app-singleproperty [property]="selectedProperty" *ngIf="mode=='single' && selectedProperty"></app-singleproperty>
+  <button class="btn-primary" *ngIf="mode=='single'" (click)="mode='list'">Back To My Properties</button><br><br>
+  <app-updateproperty [property]="selectedProperty" *ngIf="mode=='single' && selectedProperty"></app-updateproperty>
 </div>
 <div class="container">
+  <!-- <h5 *ngIf = "deleteMessage"><b>Your property has been removed!</b></h5> -->
   <div class="row">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
@@ -37,8 +38,8 @@
                   card's
                   content.</p>
                 <p style="color:rgb(10, 12, 181)"> Rs {{property.price}}</p>
-                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">Update</a>&nbsp;&nbsp;
-                <a style="color:white;" (click)="ViewDetails(property)" class="btn btn-primary">Delete</a>
+                <a style="color:white;" (click) = "update(property)" class="btn btn-primary">Update</a>&nbsp;&nbsp;
+                <a style="color:white;" (click)="delete(property)" class="btn btn-primary">Delete</a>
               </div>
             </div>
           </div>

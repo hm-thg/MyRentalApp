@@ -17,6 +17,27 @@ export class RentalserviceService {
     return this.db.collection('rentals').add({createdOn,...rental})
   }
 
+  updateRental(rental,id){
+    // console.log(rental)
+    var docRef = this.db.collection("rentals").doc(id);
+
+    let updatedOn = new Date()
+    return docRef.update({
+        createdOn:updatedOn,
+        description:rental.description,
+        // image:rental.image,
+        locality:rental.locality,
+        price:rental.price,
+        title:rental.title,
+      })
+      .then(function() {
+          console.log("Document successfully updated!");
+      })
+      .catch(function(error) {
+          console.error("Error updating document: ", error);
+      });
+  }
+
   getAllRentals(){
     return this.db.collection('rentals').snapshotChanges().pipe(
       map(actions => actions.map(a => {

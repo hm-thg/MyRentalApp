@@ -1,6 +1,9 @@
 import { AuthService } from 'src/app/service/auth.service';
 import { RentalserviceService } from './../../service/rentalservice.service';
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-myproperties',
@@ -12,7 +15,10 @@ export class MypropertiesComponent implements OnInit {
   myProperties=[]
   selectedProperty;
   mode:any='list' // list or single
-  constructor(public rentalService:RentalserviceService,public authService:AuthService) { }
+  id:any
+  // deleteMessage = false
+
+  constructor(public rentalService:RentalserviceService,public authService:AuthService,public db:AngularFirestore) { }
 
   ngOnInit() {
     this.getAllProperties()
@@ -33,19 +39,45 @@ export class MypropertiesComponent implements OnInit {
     }
   }
 
-  ViewDetails(property){
+  update(property){
     this.mode='single';
     this.selectedProperty = property;
   }
+
+  delete(property){
+    // this.db.collection('rentals',ref=>ref.where('createdOn','==',property.createdOn)).snapshotChanges().pipe(
+    //   map(actions => actions.map(a => {
+    //      const data = a.payload.doc.data() as any;
+    //      console.log(a.payload.doc.id)
+    //      this.id = a.payload.doc.id;
+    //      console.log('id')
+    //   }))
+    // );
+    for(var i = 0;i < this.properties.length;i++){
+      if(this.properties[i].createdOn == property.createdOn){
+        this.id = this.properties[i].id
+        break
+      }
+    }
+    console.log(this.id)
+    this.db.collection('rentals').doc(this.id).delete().then(function() {
+      // this.deleteMessage = true
+      alert('The property has been removed')
+      document.location.reload()
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+  }
+
   getOrdered(by:string){
     this.rentalService.getOrderedRentals(by).subscribe(data=>{
-      this.properties=data
+      this.myProperties=data
     })
   }
   search(searchkey:string){
     console.log(searchkey)
     this.rentalService.getByLocality(searchkey).subscribe(data=>{
-      this.properties=data
+      this.myProperties=data
     })
   }
 
