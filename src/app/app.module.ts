@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-
+import {HttpClientModule} from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -24,6 +23,7 @@ import { ErrorComponent } from './error/error.component';
 import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 import { MypropertiesComponent } from './home/myproperties/myproperties.component';
 import { UpdatepropertyComponent } from './home/myproperties/updateproperty/updateproperty.component';
+import { DataComponent } from './data/data.component';
 
 
 
@@ -41,7 +41,8 @@ import { UpdatepropertyComponent } from './home/myproperties/updateproperty/upda
     ErrorComponent,
     EnquiriesComponent,
     MypropertiesComponent,
-    UpdatepropertyComponent
+    UpdatepropertyComponent,
+    DataComponent
 
   ],
   imports: [
@@ -54,6 +55,8 @@ import { UpdatepropertyComponent } from './home/myproperties/updateproperty/upda
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     FormsModule,
+    HttpClientModule,
+    Pipe
 
   ],
   providers: [],

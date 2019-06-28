@@ -1,3 +1,4 @@
+import { DataComponent } from './data/data.component';
 import { MypropertiesComponent } from './home/myproperties/myproperties.component';
 import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 import { IndexComponent } from './home/index/index.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'myproperties' , component: MypropertiesComponent},
   ]},
   {path: 'index' , component: IndexComponent},
+  {path: 'data',component:DataComponent},
   {path: '' , component: IndexComponent},
   // {path:'auth' , component:AuthComponent},
   {path: 'test/:id' , component: SignupComponent},

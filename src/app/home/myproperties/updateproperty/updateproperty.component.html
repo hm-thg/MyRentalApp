@@ -7,22 +7,22 @@
         <h2><b>Update Your Property</b></h2><br>
         <div class="form-group">
           <label for="title"><b>Title Of Property</b></label>
-          <input name="title" ngModel type="text" class="form-control" placeholder="Enter Title" >
+          <input name="title" [(ngModel)] = "property.title" type="text"  class="form-control" >
           <small id="emailHelp" class="form-text text-muted">You Must Enter the Title less then 100 letters</small>
         </div>
         <div class="form-group">
           <label for="price"><b>Price</b></label>
-          <input name="price" ngModel type="number" class="form-control" placeholder="Enter Price" >
+          <input name="price" [(ngModel)] = "property.price" type="number" class="form-control" >
           <small id="emailHelp" class="form-text text-muted">Enter the price in rupees (5000.00)</small>
         </div>
         <div class="form-group">
           <label for="locality"><b>Locality</b></label>
-          <input name="locality" ngModel type="text" class="form-control" placeholder="Enter Locality" >
+          <input name="locality" [(ngModel)] = "property.locality" type="text" class="form-control">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
           <label for="description"><b>Description</b></label>
-          <input name="description" ngModel type="text" class="form-control" placeholder="Description" >
+          <input name="description" [(ngModel)] = "property.description" type="text" class="form-control" >
         </div><br>
         <div class="form-group">
           <label><b>Update image of your property</b></label>

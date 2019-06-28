@@ -25,7 +25,7 @@ export class RentalserviceService {
     return docRef.update({
         createdOn:updatedOn,
         description:rental.description,
-        // image:rental.image,
+        image:rental.image,
         locality:rental.locality,
         price:rental.price,
         title:rental.title,
