@@ -11,7 +11,7 @@
         <button *ngIf="mode == 'list'" class="btn btn-dark" id="dropdownBasic1" ngbDropdownToggle>Sort by Price</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button (click)="getOrdered('desc')" ngbDropdownItem>High to low</button>
-          <button (click)="getOrdered('asc')" ngbDropdownItem>low to high</button>
+          <button (click)="getOrdered('asc')" ngbDropdownItem>Low to high</button>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
       class="form-inline my-2 my-lg-0">
       <input required ngModel name="locality" class="form-control mr-sm-2" type="search" placeholder="Search Locality"
         aria-label="Search">
-      <button [disabled]="!searchForm.valid" class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+      <button [disabled]="!searchForm.valid" class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fas fa-search-location"></i>&nbsp;Search</button>
     </form>
   </div>
 </div>
@@ -34,12 +34,10 @@
               <!-- <img src="..." class="card-img-top" alt="..."> -->
               <div class="card-body">
                 <h5 class="card-title">{{property.title}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.</p>
+                <p class="card-text">{{ property.description | truncate:[70, '...'] }}</p>
                 <p style="color:rgb(10, 12, 181)"> Rs {{property.price}}</p>
-                <a style="color:white;" (click) = "update(property)" class="btn btn-primary">Update</a>&nbsp;&nbsp;
-                <a style="color:white;" (click)="delete(property)" class="btn btn-primary">Delete</a>
+                <a style="color:white;" (click) = "update(property)" class="btn btn-primary"><i class="fas fa-edit"></i>&nbsp;Update</a>&nbsp;&nbsp;
+                <a style="color:white;" (click)="delete(property)" class="btn btn-primary"><i class="far fa-trash-alt"></i>&nbsp;Delete</a>
               </div>
             </div>
           </div>

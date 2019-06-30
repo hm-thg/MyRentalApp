@@ -14,9 +14,8 @@ export class MypropertiesComponent implements OnInit {
   properties=[]
   myProperties=[]
   selectedProperty;
-  mode:any='list' // list or single
+  mode:any='list'
   id:any
-  // deleteMessage = false
 
   constructor(public rentalService:RentalserviceService,public authService:AuthService,public db:AngularFirestore) { }
 
@@ -61,7 +60,6 @@ export class MypropertiesComponent implements OnInit {
     }
     console.log(this.id)
     this.db.collection('rentals').doc(this.id).delete().then(function() {
-      // this.deleteMessage = true
       alert('The property has been removed')
       document.location.reload()
   }).catch(function(error) {

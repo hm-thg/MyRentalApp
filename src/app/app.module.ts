@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Pipe } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +24,7 @@ import { EnquiriesComponent } from './home/enquiries/enquiries.component';
 import { MypropertiesComponent } from './home/myproperties/myproperties.component';
 import { UpdatepropertyComponent } from './home/myproperties/updateproperty/updateproperty.component';
 import { DataComponent } from './data/data.component';
-
+import { TruncatePipe } from './truncate.pipe';
 
 
 @NgModule({
@@ -42,8 +42,8 @@ import { DataComponent } from './data/data.component';
     EnquiriesComponent,
     MypropertiesComponent,
     UpdatepropertyComponent,
-    DataComponent
-
+    DataComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -56,8 +56,6 @@ import { DataComponent } from './data/data.component';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     FormsModule,
     HttpClientModule,
-    Pipe
-
   ],
   providers: [],
   bootstrap: [AppComponent]
